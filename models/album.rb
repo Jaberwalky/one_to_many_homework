@@ -20,6 +20,11 @@ class Album
     @id = result.first['id'].to_i
   end
 
+  def Album.delete_all
+    sql = "DELETE FROM albums;"
+    SqlRunner.run(sql)
+  end
+
   def Album.all()
     sql = "SELECT * FROM albums"
     result = SqlRunner.run(sql)
@@ -32,6 +37,7 @@ class Album
     return result.map {|hash| Album.new(hash)}
   end
 
+   
 
 
 end
