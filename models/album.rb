@@ -20,6 +20,16 @@ class Album
     @id = result.first['id'].to_i
   end
 
+  def Album.all()
+    sql = "SELECT * FROM albums"
+    result = SqlRunner.run(sql)
+    return result.map {|hash| Album.new(hash)}
+  end
+
+  
+
+
+
 end
 
  # Every artist should have a name, and each album should have a name/title, genre and artist ID.
