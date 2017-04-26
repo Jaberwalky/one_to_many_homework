@@ -37,7 +37,11 @@ class Album
     return result.map {|hash| Album.new(hash)}
   end
 
-   
+   def update()
+     sql = "
+     UPDATE albums SET (title, genre, artist_id) = ('#{@title}', '#{genre}', #{artist_id}) WHERE id = #{@id}"
+     return SqlRunner.run(sql)
+   end
 
 
 end

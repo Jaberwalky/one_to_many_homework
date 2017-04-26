@@ -33,6 +33,10 @@ class Artist
     return result.map {|hash| Album.new(hash)}
   end
 
-
+  def update()
+    sql = "
+    UPDATE artists SET (name) = ('#{@name}') WHERE id = #{@id}"
+    return SqlRunner.run(sql)
+  end
 
 end
