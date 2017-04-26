@@ -48,6 +48,11 @@ class Album
      return SqlRunner.run(sql)
    end
 
+   def Album.find_album(album_id)
+     sql = "SELECT * FROM albums WHERE @id = #{album_id}"
+     SqlRunner.run(sql).first
+   end
+
 end
 
  # Every artist should have a name, and each album should have a name/title, genre and artist ID.
