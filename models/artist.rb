@@ -39,4 +39,10 @@ class Artist
     return SqlRunner.run(sql)
   end
 
+  # unsafe due to dependancies.
+  # def delete()
+  #   sql = "DELETE FROM artists WHERE id = #{@id}"
+  #   return SqlRunner.run(sql)
+  # end
+
 end
