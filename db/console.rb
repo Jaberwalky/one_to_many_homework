@@ -7,6 +7,7 @@ artist1.save()
 artist2 = Artist.new({"name" => "Pink Floyd"})
 artist2.save()
 
+
 album1 = Album.new({
   "title" => "Colour the small one", 
   "genre" => "pop", 
@@ -19,8 +20,15 @@ album2 = Album.new({
   "artist_id" => artist2.id
 })
 
+album3 = Album.new({
+  "title" => "This is Acting",
+  "genre" => "pop",
+  "artist_id" => artist1.id
+  })
+
 album1.save()
 album2.save()
+album3.save()
 
 
 
