@@ -1,17 +1,24 @@
 require_relative '../db/sql_runner.rb'
 
-def Album
+class Album
 
-  attr_reader :id, :artist_id
-  attr_accessor :title, :genre
+  attr_reader :id
+  attr_accessor :title, :genre, :artist_id
 
   def initialize(params)
-    @id = options['id'].to_i if options['id']
+    @id = params['id'].to_i if params['id']
     @title = params['title']
     @genre = params['genre']
     @artist_id = params['artist_id']
   end
 
+  def save()
+    sql = "
+    INSERT INTO albums (title, genre, artist_id) VALUES
+    ('#{@title}', '#{@genre}', #{artist_id}) RETURNING id;"
+    result = SqlRunner.run(sql)
+    @id = result.first['id'].to_i
+  end
 
 end
 
